@@ -1,7 +1,15 @@
+import Header from "./layout/Header";
+import PageContent from "./layout/PageContent";
+import Footer from "./layout/Footer";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <Header />
+      <PageContent>
+        <HomePage />
+      </PageContent>
+      <Footer />
     </>
   );
 }
