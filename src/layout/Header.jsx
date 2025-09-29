@@ -20,7 +20,7 @@ export default function Header() {
             alt="card"
             className="w-6 h-6"
           />
-          <img src="/images/icons/menu.png" alt="user" className="w-6 h-6" />
+          <img src="/images/icons/menu.png" alt="user" className="w-6 h-6 " />
         </div>
       </div>
 
