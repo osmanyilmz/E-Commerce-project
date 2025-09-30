@@ -1,3 +1,4 @@
+import EditorsPick from "../components/EditorsPick";
 import Slider from "../components/Slider";
 
 const slides = [
@@ -19,10 +20,13 @@ const slides = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[1900px] h-[1000px] ">
-        <Slider slides={slides} />
+    <>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="w-[1900px] h-[1000px] ">
+          <Slider slides={slides} />
+        </div>
       </div>
-    </main>
+      <EditorsPick />
+    </>
   );
 }
