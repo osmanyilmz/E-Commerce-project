@@ -19,6 +19,17 @@ const slides = [
   },
 ];
 
+const productSlides = [
+  {
+    image: "/images/vita-classic.png",
+    season: "SUMMER 2020",
+    title: "Vita Classic\nProduct",
+    desc: "We know how large objects\nwill act, but things on a\nsmall scale.",
+    price: "$16.48",
+    buttonLabel: "ADD TO CART",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -29,6 +40,7 @@ export default function HomePage() {
       </div>
       <EditorsPick />
       <FeaturedProducts />
+      <Slider slides={productSlides} variant="product" />
     </>
   );
 }
