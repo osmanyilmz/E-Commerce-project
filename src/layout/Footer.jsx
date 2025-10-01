@@ -23,9 +23,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Links */}
         <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-5 ">
-          {/* Company Info */}
           <div>
             <h3 className="font-semibold text-gray-800 mb-3">Company Info</h3>
             <ul className="space-y-2">

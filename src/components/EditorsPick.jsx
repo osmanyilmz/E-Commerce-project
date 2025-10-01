@@ -22,7 +22,7 @@ export default function EditorsPick() {
         Problems trying to resolve <br />
         the conflict between
       </p>
-      <div className="flex flex-col gap-6 mt-[10px] w-full max-w-md mx-auto">
+      <div className="flex flex-col gap-6 mt-[10px] w-full max-w-sm mx-auto">
         {items.map((item, index) => (
           <div key={index} className="relative">
             <img

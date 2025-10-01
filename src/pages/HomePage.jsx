@@ -1,4 +1,5 @@
 import EditorsPick from "../components/EditorsPick";
+import FeaturedProducts from "../components/FeaturedProducts";
 import Slider from "../components/Slider";
 
 const slides = [
@@ -27,6 +28,7 @@ export default function HomePage() {
         </div>
       </div>
       <EditorsPick />
+      <FeaturedProducts />
     </>
   );
 }
