@@ -30,6 +30,16 @@ const productSlides = [
   },
 ];
 
+const doubleButtonSlides = [
+  {
+    image: "/images/neural-universe.png",
+    season: "SUMMER 2020",
+    title: "Part of the\nNeural\nUniverse",
+    desc: "We know how large\nobjects will act, but\nthings on a small scale.",
+    buttonLabel: "BUY NOW",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -39,8 +49,12 @@ export default function HomePage() {
         </div>
       </div>
       <EditorsPick />
+
       <FeaturedProducts />
+
       <Slider slides={productSlides} variant="product" />
+
+      <Slider slides={doubleButtonSlides} variant="doubleButton" />
     </>
   );
 }
