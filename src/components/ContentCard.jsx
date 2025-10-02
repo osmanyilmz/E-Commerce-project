@@ -63,8 +63,22 @@ export default function ContentCard({
 
   if (slides && slides.length > 0) {
     return (
-      <div className="flex flex-col items-center gap-6 px-6 md:px-12 lg:px-20">
-        {slides.map(renderCard)}
+      <div className="flex flex-col items-center gap-8 px-6 md:px-12 lg:px-20">
+        <div className="text-center max-w-lg">
+          <p className="text-[#23A6F0] font-semibold">Practice Advice</p>
+          <h2 className="text-[40px] font-bold text-gray-800">
+            Featured <br />
+            Products
+          </h2>
+          <p className="text-[#737373] mt-2 text-m font-[500] mb-10">
+            Problems trying to resolve the
+            <br /> conflict between the two major
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center gap-6 px-6 md:px-12 lg:px-20">
+          {slides.map(renderCard)}
+        </div>
       </div>
     );
   }

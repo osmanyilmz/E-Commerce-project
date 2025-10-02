@@ -119,7 +119,7 @@ export default function Slider({ slides, variant = "default" }) {
           <img
             src={slides[current].image}
             alt={slides[current].title}
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[500px] object-cover mb-15"
           />
         </div>
       ) : (

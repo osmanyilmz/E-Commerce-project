@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-600 px-6 py-10">
+    <footer className="bg-white text-gray-600 py-10">
       <div className="max-w-6xl mx-auto ">
-        <div className="flex flex-col items-center md:flex-row md:justify-between bg-[#fafafa] items-start">
-          <div className="font-bold text-xl text-gray-800">Bandage</div>
+        <div className="flex flex-col items-center md:flex-row md:justify-between bg-[#fafafa] items-start p-8">
+          <div className="font-bold text-2xl text-gray-800">Bandage</div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <img
               src="/images/icons/footer/facebook.png"
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-5 ">
+        <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-5 px-8">
           <div>
             <h3 className="font-semibold text-gray-800 mb-3">Company Info</h3>
             <ul className="space-y-2">
