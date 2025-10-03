@@ -35,8 +35,8 @@ const doubleButtonSlides = [
   {
     image: "/images/neural-universe.png",
     season: "SUMMER 2020",
-    title: "Part of the\nNeural\nUniverse",
-    desc: "We know how large\nobjects will act, but \nthings on a small scale.",
+    title: "Part of the \n Neural \n Universe",
+    desc: "We know how large \n objects will act, but \n things on a small scale.",
     buttonLabel: "BUY NOW",
   },
 ];

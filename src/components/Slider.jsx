@@ -35,7 +35,7 @@ export default function Slider({ slides, variant = "default" }) {
         </h2>
 
         <p
-          className={`text-[20px] mb-4 lg:text-5xl lg:mb-10 ${
+          className={`text-[20px] mb-4 lg:text-2xl lg:mb-10 ${
             isDouble ? "text-[#737373]" : "text-white"
           }`}
         >
@@ -59,11 +59,11 @@ export default function Slider({ slides, variant = "default" }) {
 
         {isDouble ? (
           <div className="flex flex-col gap-3 w-full max-w-[200px]">
-            <button className="bg-[#23A6F0] text-white text- md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 transition">
+            <button className="bg-[#23A6F0] text-white text- md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 transition lg:bg-[#2DC071]">
               {slides[current].buttonLabel}
             </button>
-            <button className="border border-[#23A6F0] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 hover:text-white transition">
-              Learn More
+            <button className="border border-[#23A6F0] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 hover:text-white transition lg:text-[#2DC071]">
+              READ MORE
             </button>
           </div>
         ) : variant === "product" ? (
@@ -114,22 +114,26 @@ export default function Slider({ slides, variant = "default" }) {
           </button>
         </>
       ) : variant === "doubleButton" ? (
-        <div className="w-full bg-white flex flex-col items-center justify-center ">
-          {renderText()}
-          <img
-            src={slides[current].image}
-            alt={slides[current].title}
-            className="w-full h-[500px] object-cover mb-15"
-          />
+        <div className="w-full bg-white flex flex-col lg:flex-row items-center justify-center ">
+          <div className="flex-1 flex justify-center">
+            <img
+              src={slides[current].image}
+              alt={slides[current].title}
+              className="w-full h-[1000px] object-cover mb-15"
+            />
+          </div>
+          <div className="flex-1 flex justify-center">{renderText()}</div>
         </div>
       ) : (
-        <div className="w-full bg-[#23856D] flex flex-col items-center justify-center">
-          {renderText()}
-          <img
-            src={slides[current].image}
-            alt={slides[current].title}
-            className="w-full bg-[#23856D] h-[700px] object-cover"
-          />
+        <div className="w-full bg-[#23856D] flex flex-col lg:flex-row items-center justify-center">
+          <div className="flex-1 flex justify-center">{renderText()}</div>
+          <div className="flex-1 flex justify-center">
+            <img
+              src={slides[current].image}
+              alt={slides[current].title}
+              className="w-full bg-[#23856D] h-[1000px] object-cover"
+            />
+          </div>
         </div>
       )}
     </div>
