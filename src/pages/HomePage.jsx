@@ -6,9 +6,9 @@ import ContentCard from "../components/ContentCard";
 const slides = [
   {
     image: "/images/carousel-image.jpg",
-    title: "NEW\nCOLLECTION",
+    title: "NEW \n COLLECTION",
     season: "SUMMER 2020",
-    desc: "We know how large objects\nwill act, but things on a\nsmall scale.",
+    desc: "We know how large objects \n will act, but things on a \n small scale.",
     buttonLabel: "SHOP NOW",
   },
   {
@@ -24,8 +24,8 @@ const productSlides = [
   {
     image: "/images/vita-classic.png",
     season: "SUMMER 2020",
-    title: "Vita Classic\nProduct",
-    desc: "We know how large objects\nwill act, but things on a\nsmall scale.",
+    title: "Vita Classic \n Product",
+    desc: "We know how large objects \n will act, but things on a \n small scale.",
     price: "$16.48",
     buttonLabel: "ADD TO CART",
   },
@@ -36,7 +36,7 @@ const doubleButtonSlides = [
     image: "/images/neural-universe.png",
     season: "SUMMER 2020",
     title: "Part of the\nNeural\nUniverse",
-    desc: "We know how large\nobjects will act, but\nthings on a small scale.",
+    desc: "We know how large\nobjects will act, but \nthings on a small scale.",
     buttonLabel: "BUY NOW",
   },
 ];

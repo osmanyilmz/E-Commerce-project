@@ -65,18 +65,20 @@ export default function ContentCard({
     return (
       <div className="flex flex-col items-center gap-8 px-6 md:px-12 lg:px-20">
         <div className="text-center max-w-lg">
-          <p className="text-[#23A6F0] font-semibold">Practice Advice</p>
+          <p className="text-[#23A6F0] font-semibold lg:text-2xl">
+            Practice Advice
+          </p>
           <h2 className="text-[40px] font-bold text-gray-800">
-            Featured <br />
+            Featured <br className="block lg:hidden" />
             Products
           </h2>
           <p className="text-[#737373] mt-2 text-m font-[500] mb-10">
             Problems trying to resolve the
-            <br /> conflict between the two major
+            <br className="block lg:hidden" /> conflict between the two major
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-6 px-6 md:px-12 lg:px-20">
+        <div className="grid gap-6 px-6 md:px-12 lg:px-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {slides.map(renderCard)}
         </div>
       </div>

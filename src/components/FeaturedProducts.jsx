@@ -16,21 +16,21 @@ export default function FeaturedProducts() {
   }));
   return (
     <div className="bg-[#ffffff] py-10 px-4 w-full">
-      <h2 className="text-xl font-normal text-[#737373] mb-4 text-center">
+      <h2 className="text-xl font-normal text-[#737373] mb-4 text-center lg:text-xl">
         Featured Products
       </h2>
 
-      <h2 className="text-2xl font-bold text-black mb-3 text-center">
-        BESTSELLER <br />
+      <h2 className="text-2xl lg:text-3xl font-bold text-black mb-3 text-center">
+        BESTSELLER <br className="block lg:hidden" />
         PRODUCTS
       </h2>
 
-      <p className="text-[#737373] font-normal leading-snug text-center mb-10">
+      <p className="text-[#737373] font-normal leading-snug  lg:text-xl text-center mb-10">
         Problems trying to resolve the
-        <br />
+        <br className="block lg:hidden" />
         conflict between
       </p>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((item, idx) => (
           <ProductCard key={idx} {...item} />
         ))}

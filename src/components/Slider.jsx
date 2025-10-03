@@ -12,9 +12,9 @@ export default function Slider({ slides, variant = "default" }) {
     const isDouble = variant === "doubleButton";
 
     return (
-      <div className="flex flex-col items-center text-center p-6">
+      <div className="flex flex-col items-center text-center lg:items-start lg:text-left p-6 max-w-2xl">
         <p
-          className={`text-m md:text-sm mb-2 font-bold mt-30 tracking-widest ${
+          className={`text-m md:text-sm mb-2 font-bold mt-30 tracking-widest lg:text-xl lg:mb-10 ${
             isDouble ? "text-[#BDBDBD]" : "text-[#ffffff]"
           }`}
         >
@@ -22,27 +22,27 @@ export default function Slider({ slides, variant = "default" }) {
         </p>
 
         <h2
-          className={`text-[40px] md:text-2xl font-bold mb-2 ${
+          className={`text-[40px] md:text-2xl font-bold mb-2 lg:text-6xl lg:mb-10 ${
             isDouble ? "text-black" : "text-white"
           }`}
         >
           {slides[current].title.split("\n").map((line, i) => (
             <span key={i}>
               {line}
-              <br />
+              <br className="block lg:hidden" />
             </span>
           ))}
         </h2>
 
         <p
-          className={`text-[20px] mb-4 ${
+          className={`text-[20px] mb-4 lg:text-5xl lg:mb-10 ${
             isDouble ? "text-[#737373]" : "text-white"
           }`}
         >
           {slides[current].desc.split("\n").map((line, i) => (
             <span key={i}>
               {line}
-              <br />
+              <br className="block lg:hidden" />
             </span>
           ))}
         </p>
@@ -69,9 +69,9 @@ export default function Slider({ slides, variant = "default" }) {
         ) : variant === "product" ? (
           <div className="flex items-center justify-center gap-20">
             <button onClick={prevSlide}>
-              <ChevronLeft className="w-12 h-20 text-white" />
+              <ChevronLeft className="w-12 h-20 lg:w-20 lg:h-32 text-white" />
             </button>
-            <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold px-10 py-4 rounded hover:bg-green-600 transition">
+            <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold px-10 py-4 rounded hover:bg-green-100 transition">
               {slides[current].buttonLabel}
             </button>
             <button onClick={nextSlide}>
@@ -79,7 +79,7 @@ export default function Slider({ slides, variant = "default" }) {
             </button>
           </div>
         ) : (
-          <button className="bg-green-500 text-white text-sm md:text-base font-semibold px-6 py-2 rounded hover:bg-green-600 transition">
+          <button className="bg-green-500 text-white text-sm md:text-base font-semibold px-6 py-2 rounded hover:bg-green-600 transition lg:px-20 lg:py-4">
             {slides[current].buttonLabel}
           </button>
         )}
@@ -102,15 +102,15 @@ export default function Slider({ slides, variant = "default" }) {
 
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2"
+            className="absolute left-0 top-1/2 -translate-y-1/2 "
           >
-            <ChevronLeft className="w-5 h-5 text-white" />
+            <ChevronLeft className="w-5 h-5 lg:w-20 lg:h-20 text-white" />
           </button>
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2"
           >
-            <ChevronRight className="w-5 h-5 text-white" />
+            <ChevronRight className="w-5 h-5 lg:w-20 lg:h-20 text-white" />
           </button>
         </>
       ) : variant === "doubleButton" ? (
