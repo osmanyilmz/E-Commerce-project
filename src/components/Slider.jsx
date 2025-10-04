@@ -51,31 +51,46 @@ export default function Slider({ slides, variant = "default" }) {
           <p
             className={`text-lg font-bold mb-4 ${
               isDouble ? "text-black" : "text-white"
-            }`}
+            } lg:hidden`}
           >
             {slides[current].price}
           </p>
         )}
 
         {isDouble ? (
-          <div className="flex flex-col gap-3 w-full max-w-[200px]">
+          <div className="flex flex-col lg:flex-row gap-3 w-full max-w-[200px] lg:max-w-none">
             <button className="bg-[#23A6F0] text-white text- md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 transition lg:bg-[#2DC071]">
               {slides[current].buttonLabel}
             </button>
-            <button className="border border-[#23A6F0] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 hover:text-white transition lg:text-[#2DC071]">
+            <button className="border border-[#23A6F0] lg:border-[#2DC071] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 hover:text-white transition lg:text-[#2DC071]">
               READ MORE
             </button>
           </div>
         ) : variant === "product" ? (
           <div className="flex items-center justify-center gap-20">
-            <button onClick={prevSlide}>
+            <button
+              className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2"
+              onClick={prevSlide}
+            >
               <ChevronLeft className="w-12 h-20 lg:w-20 lg:h-32 text-white" />
             </button>
-            <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold px-10 py-4 rounded hover:bg-green-100 transition">
-              {slides[current].buttonLabel}
-            </button>
-            <button onClick={nextSlide}>
-              <ChevronRight className="w-12 h-20 text-white" />
+
+            <div className="flex items-center gap-4">
+              {slides[current].price && (
+                <p className="hidden lg:inline text-white text-xl font-bold">
+                  {slides[current].price}
+                </p>
+              )}
+              <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold  px-10 py-4 rounded hover:bg-green-100 transition">
+                {slides[current].buttonLabel}
+              </button>
+            </div>
+
+            <button
+              className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
+              onClick={nextSlide}
+            >
+              <ChevronRight className="w-12 h-20 lg:w-20 lg:h-32 text-white" />
             </button>
           </div>
         ) : (
@@ -96,7 +111,7 @@ export default function Slider({ slides, variant = "default" }) {
             alt={slides[current].title}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+          <div className="absolute inset-0 flex items-center justify-center ">
             {renderText()}
           </div>
 
@@ -115,14 +130,16 @@ export default function Slider({ slides, variant = "default" }) {
         </>
       ) : variant === "doubleButton" ? (
         <div className="w-full bg-white flex flex-col lg:flex-row items-center justify-center ">
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center order-1 lg:order-2">
+            {renderText()}
+          </div>
+          <div className="flex-1 flex justify-center order-2 lg:order-1">
             <img
               src={slides[current].image}
               alt={slides[current].title}
               className="w-full h-[1000px] object-cover mb-15"
             />
           </div>
-          <div className="flex-1 flex justify-center">{renderText()}</div>
         </div>
       ) : (
         <div className="w-full bg-[#23856D] flex flex-col lg:flex-row items-center justify-center">
