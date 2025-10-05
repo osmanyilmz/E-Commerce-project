@@ -10,6 +10,7 @@ import {
   Heart,
   Youtube,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -38,12 +39,12 @@ export default function Header() {
           </div>
         </div>
         <nav className="flex flex-col items-center space-y-6 mt-8 text-gray-500 text-lg">
-          <a href="#" className="hover:text-gray-800">
+          <Link to="/" className="hover:text-gray-800">
             Home
-          </a>
-          <a href="#" className="hover:text-gray-800">
+          </Link>
+          <Link to="/shop" className="hover:text-gray-800">
             Product
-          </a>
+          </Link>
           <a href="#" className="hover:text-gray-800">
             Pricing
           </a>
@@ -83,11 +84,13 @@ export default function Header() {
           <div className="flex items-center space-x-12">
             <div className="text-lg font-bold text-gray-800">Bandage</div>
             <nav className="hidden md:flex items-center space-x-8 text-gray-500 text-lg">
-              <a href="#" className="hover:text-gray-800">
+              <Link to="/" className="hover:text-gray-800">
                 Home
-              </a>
+              </Link>
               <div className="relative group">
-                <button className="hover:text-gray-800">Shop</button>
+                <Link to="/shop" className="hover:text-gray-800">
+                  Shop
+                </Link>
                 <div className="absolute left-0 top-full mt-2 hidden group-hover:flex bg-white shadow-lg border p-6 space-x-12 z-50">
                   <div>
                     <h3 className="font-bold text-gray-800 mb-2">Kadın</h3>
