@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-white text-gray-600 py-10">
       <div className="max-w-6xl mx-auto font-bold">
-        <div className="flex flex-col items-center md:flex-row md:justify-between bg-[#fafafa] items-start p-8">
+        <div className="flex flex-col items-center md:flex-row md:justify-between items-start p-8">
           <div className="font-bold text-2xl text-gray-800">Bandage</div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <img

@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="w-full border-b">
+    <header className="w-full">
       {/* --- KÜÇÜK EKRAN HEADER --- */}
       <div className="md:hidden flex flex-col px-4 py-4">
         <div className="flex items-center justify-between w-full">
