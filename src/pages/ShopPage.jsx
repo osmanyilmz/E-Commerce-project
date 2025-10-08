@@ -18,11 +18,11 @@ export default function ShopPage() {
 
   return (
     <>
-      <div className="w-full min-h-screen flex justify-center bg-white text-gray-800">
-        <div className="w-full max-w-3xl px-6 py-10">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-semibold mb-5">Shop</h1>
-            <div className="text-sm text-gray-500 mb-2">
+      <div className="w-full flex justify-center text-gray-800 bg-[#FAFAFA]">
+        <div className="w-full max-w-6xl px-6 py-5 mb-10">
+          <div className="flex flex-col items-center text-center mb-8 lg:flex-row lg:justify-between lg:text-left">
+            <h1 className="text-2xl font-semibold mb-2 lg:mb-0">Shop</h1>
+            <div className="text-m text-gray-500">
               <span className="text-gray-800 font-medium">Home</span> &gt; Shop
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function ShopPage() {
       </div>
 
       <div className="flex justify-center mt-6 bg-[#FAFAFA] p-8">
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:flex-wrap lg:gap-20">
           {icons.map((icon) => (
             <img
               key={icon}

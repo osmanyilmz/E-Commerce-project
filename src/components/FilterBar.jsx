@@ -1,12 +1,12 @@
-import { Grid, LayoutGrid, List } from "lucide-react";
+import { LayoutGrid, List } from "lucide-react";
 
 export default function FilterBar() {
   return (
-    <div className="w-full flex flex-col items-center gap-6 text-[#737373] font-[600] mb-20">
-      <p className="text-sm text-center">Showing all 12 results</p>
+    <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 text-[#737373] font-[600] mb-20">
+      <p className="text-sm text-center ">Showing all 12 results</p>
 
       <div className="flex items-center justify-center gap-2">
-        <span className="text-sm ">Views:</span>
+        <span className="text-sm">Views:</span>
         <button className="p-2 border rounded-md hover:bg-gray-100 transition">
           <LayoutGrid size={18} />
         </button>
