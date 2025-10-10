@@ -19,7 +19,7 @@ export default function ShopPage() {
   return (
     <>
       <div className="w-full flex justify-center text-gray-800 bg-[#FAFAFA]">
-        <div className="w-full max-w-6xl px-6 py-5 mb-10">
+        <div className="w-full max-w-6xl px-5 py-5 mb-10">
           <div className="flex flex-col items-center text-center mb-8 lg:flex-row lg:justify-between lg:text-left">
             <h1 className="text-2xl font-semibold mb-2 lg:mb-0">Shop</h1>
             <div className="text-m text-gray-500">
