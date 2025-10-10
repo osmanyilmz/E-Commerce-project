@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-600 py-10">
+    <footer className="bg-white text-gray-600">
       <div className="max-w-6xl mx-auto font-bold">
         <div className="flex flex-col items-center md:flex-row md:justify-between items-start p-8">
           <div className="font-bold text-2xl text-gray-800">Bandage</div>
@@ -103,7 +103,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="flex-1 px-5 py-4 border rounded-l-md border-[#E6E6E6] focus:outline-none bg-[#F9F9F9]"
+                className="flex-1 px-5 py-4 border rounded-l-md border-[#E6E6E6] focus:outline-none "
               />
               <button
                 type="submit"
@@ -112,20 +112,19 @@ export default function Footer() {
                 Subscribe
               </button>
             </form>
-            <p className="text-xs text-gray-400 mt-2">
+            <p className="text-xs text-gray-400 mt-2 font-bold">
               Lorem imp sum dolor Amit
             </p>
           </div>
         </div>
-
-        {/* Bottom */}
-        <div
-          className="text-center text-[#737373] mt-10 
-         p-8 bg-[#FAFAFA]"
-        >
-          Made With Love By <br />
-          Finland All Right Reserved
-        </div>
+      </div>
+      {/* Bottom */}
+      <div
+        className="text-center text-[#737373] mt-10 
+         p-8 bg-[#FAFAFA] font-bold"
+      >
+        Made With Love By <br />
+        Finland All Right Reserved
       </div>
     </footer>
   );

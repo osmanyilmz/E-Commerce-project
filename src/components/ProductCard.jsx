@@ -1,6 +1,17 @@
+import { useHistory } from "react-router-dom";
+
 export default function ProductCard({ image }) {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/product-detail");
+  };
+
   return (
-    <div className="max-w-sm mx-auto w-full bg-white overflow-hidden ">
+    <div
+      onClick={handleClick}
+      className="max-w-sm mx-auto w-full bg-white overflow-hidden cursor-pointer"
+    >
       <div className="w-full">
         <img src={image} alt="Product" className="w-full h-auto object-cover" />
       </div>
