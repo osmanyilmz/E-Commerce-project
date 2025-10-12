@@ -1,6 +1,7 @@
 import ShopCards from "../components/ShopCards";
 import ProductCard from "../components/ProductCard";
 import FilterBar from "../components/FilterBar";
+import Icons from "../components/Icons";
 
 export default function ShopPage() {
   const productImages = [
@@ -60,18 +61,7 @@ export default function ShopPage() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-6 bg-[#FAFAFA] p-8">
-        <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:flex-wrap lg:gap-20">
-          {icons.map((icon) => (
-            <img
-              key={icon}
-              src={`/images/icons/${icon}.png`}
-              alt={icon}
-              className="w-30 h-25 object-contain"
-            />
-          ))}
-        </div>
-      </div>
+      <Icons />
     </>
   );
 }

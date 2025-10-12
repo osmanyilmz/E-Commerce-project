@@ -11,9 +11,11 @@ export default function FeaturedProducts() {
     "product-cover-6.png",
     "product-cover-7.png",
   ];
+
   const products = productImages.map((img) => ({
     image: `/images/FeaturedProducts/${img}`,
   }));
+
   return (
     <div className="bg-[#ffffff] py-10 px-4 w-full">
       <h2 className="text-xl font-normal text-[#737373] mb-4 text-center lg:text-xl">
