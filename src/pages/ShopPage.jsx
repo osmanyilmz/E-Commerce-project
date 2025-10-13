@@ -1,7 +1,7 @@
 import ShopCards from "../components/ShopCards";
 import ProductCard from "../components/ProductCard";
 import FilterBar from "../components/FilterBar";
-import Icons from "../components/Icons";
+import Icons from "../components/common/Icons";
 
 export default function ShopPage() {
   const productImages = [
