@@ -17,9 +17,8 @@ export default function ProductDetails() {
   const [activeTab, setActiveTab] = useState("description");
 
   return (
-    <div className="w-full flex justify-center bg-[#FAFAFA] py-10">
+    <div className="w-full flex justify-center bg-[#FFFFFF] py-10">
       <div className="w-full max-w-6xl px-15">
-        {/* Tabs */}
         <div className="flex items-center  justify-center space-x-6 border-b border-gray-200 mb-6">
           {["description", "additional", "reviews"].map((tab) => (
             <button
@@ -40,7 +39,6 @@ export default function ProductDetails() {
           ))}
         </div>
 
-        {/* Content */}
         {activeTab === "description" && (
           <div className="text-gray-700">
             <img
@@ -58,7 +56,6 @@ export default function ProductDetails() {
               </p>
             ))}
 
-            {/* --- First List Section --- */}
             <h2 className="text-xl font-bold text-gray-900 mb-3">
               the quick fox jumps over
             </h2>
@@ -71,7 +68,6 @@ export default function ProductDetails() {
               ))}
             </ul>
 
-            {/* --- Second List Section --- */}
             <h2 className="text-xl font-bold text-gray-900 mb-3">
               the quick fox jumps over
             </h2>
