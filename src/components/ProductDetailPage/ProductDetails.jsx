@@ -17,7 +17,7 @@ export default function ProductDetails() {
   const [activeTab, setActiveTab] = useState("description");
 
   return (
-    <div className="w-full flex justify-center bg-[#FFFFFF] py-10">
+    <div className="w-full flex justify-center bg-[#FFFFFF] py-10 font-semibold">
       <div className="w-full max-w-6xl px-15">
         <div className="flex items-center  justify-center space-x-6 border-b border-gray-200 mb-6">
           {["description", "additional", "reviews"].map((tab) => (
@@ -30,55 +30,66 @@ export default function ProductDetails() {
                   : "text-gray-500 hover:text-gray-800"
               }`}
             >
-              {tab === "description"
-                ? "Description"
-                : tab === "additional"
-                ? "Additional Information"
-                : "Reviews (0)"}
+              {tab === "description" ? (
+                "Description"
+              ) : tab === "additional" ? (
+                "Additional Information"
+              ) : (
+                <>
+                  Reviews <span className="text-[#23856D]">(0)</span>
+                </>
+              )}
             </button>
           ))}
         </div>
 
         {activeTab === "description" && (
           <div className="text-gray-700">
-            <img
-              src="/images/ProductDetailPage/product-detail.png"
-              alt="Product Detail"
-              className="w-full rounded-lg mb-6"
-            />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              <div>
+                <img
+                  src="/images/ProductDetailPage/product-detail.png"
+                  alt="Product Detail"
+                  className="w-full rounded-lg mb-6 lg:h-[400px]"
+                />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  the quick fox jumps over
+                </h2>
+                {paragraphs.map((text, index) => (
+                  <p key={index} className="text-gray-500 mb-4">
+                    {text}
+                  </p>
+                ))}
+              </div>
+              <div>
+                <h2 className="text-[27px] font-bold text-gray-900 mb-3">
+                  the quick fox jumps over
+                </h2>
+                <ul className="space-y-2 text-gray-500 mb-8">
+                  {listItems.map((item, index) => (
+                    <li key={index} className="flex items-center">
+                      <ChevronRight className="w-6 h-6 mr-2 text-gray-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
 
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              the quick fox jumps over
-            </h2>
-            {paragraphs.map((text, index) => (
-              <p key={index} className="text-gray-500 mb-4">
-                {text}
-              </p>
-            ))}
+                <h2 className="text-[27px] font-bold text-gray-900 mb-3">
+                  the quick fox jumps over
+                </h2>
 
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              the quick fox jumps over
-            </h2>
-            <ul className="space-y-2 text-gray-500 mb-8">
-              {listItems.map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <ChevronRight className="w-4 h-4 mr-2 text-gray-400" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="text-xl font-bold text-gray-900 mb-3">
-              the quick fox jumps over
-            </h2>
-            <ul className="space-y-2 text-gray-500">
-              {listItems.slice(0, 3).map((item, index) => (
-                <li key={index} className="flex items-center">
-                  <ChevronRight className="w-4 h-4 mr-2 text-gray-400" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+                <ul className="space-y-2 text-gray-500">
+                  {listItems.slice(0, 3).map((item, index) => (
+                    <li key={index} className="flex items-center">
+                      <ChevronRight className="w-6 h-6 mr-2 text-gray-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         )}
 

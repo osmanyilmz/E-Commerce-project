@@ -19,12 +19,13 @@ export default function ProductDetailPage() {
     <>
       <ProductDetailCard />
       <ProductDetails />
-      <div className="bg-[#FAFAFA] py-10 px-4 w-full">
+      <div className="bg-[#FAFAFA] py-4 px-4 w-full">
         <h2 className="text-2xl lg:text-3xl font-bold text-black mb-3 text-center">
           BESTSELLER PRODUCTS
+          <hr className="mt-10 mb-5 border-t border-[#ECECEC] w-[85%] mx-auto lg:w-[78%]" />
         </h2>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 ">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-50 lg:py-15 ">
           {products.map((item, idx) => (
             <ProductCard key={idx} {...item} />
           ))}
