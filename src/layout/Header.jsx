@@ -48,9 +48,9 @@ export default function Header() {
           <a href="#" className="hover:text-gray-800">
             Pricing
           </a>
-          <a href="#" className="hover:text-gray-800">
+          <Link to="/contact" className="hover:text-gray-800">
             Contact
-          </a>
+          </Link>
         </nav>
       </div>
 
@@ -140,9 +140,9 @@ export default function Header() {
               <a href="#" className="hover:text-gray-800">
                 Blog
               </a>
-              <a href="#" className="hover:text-gray-800">
+              <Link to="/contact" className="hover:text-gray-800">
                 Contact
-              </a>
+              </Link>
               <a href="#" className="hover:text-gray-800">
                 Pages
               </a>
