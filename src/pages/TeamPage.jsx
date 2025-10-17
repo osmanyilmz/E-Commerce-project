@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram } from "lucide-react";
 
 export default function TeamPage() {
   const teamMembers = [
@@ -139,6 +139,26 @@ export default function TeamPage() {
       name: "Username",
       company: "Profession",
       image: "/images/TeamPage/team-2.png",
+    },
+    {
+      name: "Jerome Bell",
+      company: "IBM",
+      image: "/images/TeamPage/team-5.png",
+    },
+    {
+      name: "Brooklyn Simmons",
+      company: "eBay",
+      image: "/images/TeamPage/team-6.png",
+    },
+    {
+      name: "Ronald Richards",
+      company: "Starbucks",
+      image: "/images/TeamPage/team-7.png",
+    },
+    {
+      name: "Floyd Miles",
+      company: "Facebook",
+      image: "/images/TeamPage/team-8.png",
     },
   ];
 
