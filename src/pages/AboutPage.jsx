@@ -1,7 +1,10 @@
-import { Facebook, Twitter, Instagram } from "lucide-react";
+import { Facebook, Twitter, Instagram, Play, X } from "lucide-react";
 import Icons from "../components/common/Icons";
+import { useState } from "react";
 
-export default function Footer() {
+export default function AboutPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const fourthComp = [
     {
       name: "Gökhan Özdemir",
@@ -21,7 +24,115 @@ export default function Footer() {
   ];
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-6 py-16 bg-[#FAFAFA]">
+      <div className="flex flex-col items-center justify-center text-center px-6 py-16 bg-[#ffffff]">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full px-6 lg:px-120 py-16 bg-white">
+          <div className="flex flex-col justify-center w-full lg:w-1/2 text-center lg:text-left">
+            <h4 className="text-lg font-bold text-[#252B42] mb-10 tracking-wider">
+              ABOUT COMPANY
+            </h4>
+
+            <h1 className="text-3xl font-extrabold text-[#252B42] mb-4 leading-snug">
+              ABOUT US
+            </h1>
+
+            <p className="text-[#737373] text-base mb-6 max-w-md lg:max-w-none leading-relaxed">
+              We know how large <br className="block lg:hidden" />
+              objects will act, but things
+              <br className="block lg:hidden" /> on a small scale just do
+              <br className="block lg:hidden" /> not act that way.
+            </p>
+
+            <button className="bg-[#23A6F0] text-white font-bold px-8 py-3 rounded-md text-sm tracking-wide hover:bg-[#1d91d8] transition w-fit mx-auto lg:mx-0">
+              Get Quote Now
+            </button>
+          </div>
+
+          {/* Sağ taraf: Görsel */}
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-center mt-10 lg:mt-0">
+            <img
+              src="/images/AboutPage/about-1.png"
+              alt="Work with us"
+              className="w-[300px] h-auto lg:w-[500px] lg:h-[440px] object-contain"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center lg:items-start justify-center text-white text-center lg:text-left w-full lg:w-1/2 px-8 py-16">
+          <h2 className="text-lg font-semibold mb-6 leading-snug text-[#E74040] lg:self-start">
+            Problems trying
+          </h2>
+
+          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-10">
+            <h3 className="text-xl font-bold mb-4 lg:mb-0 leading-snug text-[#252B42] mb-20">
+              Met minim Mollie non desert Alamo est sit cliquey dolor do met
+              sent.
+            </h3>
+
+            <p className="text-base font-semibold text-[#737373] text-left">
+              Problems trying to resolve the conflict between the two major
+              realms of Classical physics: Newtonian mechanics
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full px-6 py-10 lg:px-20 lg:py-20">
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full max-w-6xl text-center lg:text-left space-y-20 lg:space-y-0 lg:space-x-10 mt-10 mb-20">
+            <div>
+              <h2 className="text-6xl font-bold text-[#252B42]">15K</h2>
+              <p className="text-[#737373] font-medium">Happy Customers</p>
+            </div>
+            <div>
+              <h2 className="text-6xl font-bold text-[#252B42]">150K</h2>
+              <p className="text-[#737373] font-medium">Monthly Visitors</p>
+            </div>
+            <div>
+              <h2 className="text-6xl font-bold text-[#252B42]">15</h2>
+              <p className="text-[#737373] font-medium">Countries Worldwide</p>
+            </div>
+            <div>
+              <h2 className="text-6xl font-bold text-[#252B42]">100+</h2>
+              <p className="text-[#737373] font-medium">Top Partners</p>
+            </div>
+          </div>
+
+          <div className="relative w-[307px] h-[316px] lg:w-[600px] lg:h-[350px] rounded-2xl overflow-hidden shadow-md mb-10">
+            <img
+              src="/images/AboutPage/video-image.jpg"
+              alt="Video preview"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="w-14 h-14 lg:w-20 lg:h-20 bg-[#23A6F0] rounded-full flex items-center justify-center shadow-lg hover:bg-[#1f8bd6] transition"
+              >
+                <Play className="text-white w-7 h-7 lg:w-9 lg:h-9" />
+              </button>
+            </div>
+          </div>
+
+          {isOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+              <div className="relative w-11/12 max-w-3xl aspect-video bg-black rounded-xl overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1"
+                  title="Video player"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-3 right-3 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
         <h2 className="text-4xl font-bold text-[#252B42] mb-2 text-center">
           Meet Our <br className="block lg:hidden" /> Team
         </h2>
