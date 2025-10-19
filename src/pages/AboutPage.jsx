@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="flex flex-col items-center justify-center text-center px-6 py-16 bg-[#ffffff]">
-        <div className="flex flex-col lg:flex-row items-center justify-center w-full px-6 lg:px-120 py-16 bg-white">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full px-6 lg:px-85 py-16 bg-white">
           <div className="flex flex-col justify-center w-full lg:w-1/2 text-center lg:text-left">
             <h4 className="text-lg font-bold text-[#252B42] mb-10 tracking-wider">
               ABOUT COMPANY
@@ -37,7 +37,7 @@ export default function AboutPage() {
 
             <p className="text-[#737373] text-base mb-6 max-w-md lg:max-w-none leading-relaxed">
               We know how large <br className="block lg:hidden" />
-              objects will act, but things
+              objects will act, <br className="hidden lg:block" /> but things
               <br className="block lg:hidden" /> on a small scale just do
               <br className="block lg:hidden" /> not act that way.
             </p>
@@ -47,7 +47,6 @@ export default function AboutPage() {
             </button>
           </div>
 
-          {/* Sağ taraf: Görsel */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-center mt-10 lg:mt-0">
             <img
               src="/images/AboutPage/about-1.png"
@@ -57,7 +56,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center lg:items-start justify-center text-white text-center lg:text-left w-full lg:w-1/2 px-8 py-16">
+        <div className="flex flex-col items-center lg:items-start justify-center text-white text-center lg:text-left w-full lg:w-[66%] px-8 py-16">
           <h2 className="text-lg font-semibold mb-6 leading-snug text-[#E74040] lg:self-start">
             Problems trying
           </h2>
@@ -167,17 +166,49 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-        <h2 className="text-4xl font-bold text-[#252B42] mb-2 text-center mb-10">
-          Big <br className="block lg:hidden" /> Companies{" "}
-          <br className="block lg:hidden" /> Are Here
-        </h2>
-        <p className="text-[#737373] text-center max-w-[500px] text-sm">
-          Problems trying to resolve the conflict
-          <br className="block lg:hidden" /> between the two major realms of
-          classical <br className="block lg:hidden" />
-          physics: Newtonian mechanics
-        </p>
-        <Icons />
+        <div className="bg-[#FAFAFA] px-86 py-20">
+          <h2 className="text-6xl font-bold text-[#252B42] mb-2 text-center mb-10 ">
+            Big <br className="block lg:hidden" /> Companies
+            <br className="block lg:hidden" /> Are Here
+          </h2>
+          <p className="text-[#737373] text-center  text-sm">
+            Problems trying to resolve the conflict
+            <br className="block lg:hidden" /> between
+            <br className="hidden lg:block" /> the two major realms of classical
+            <br className="block lg:hidden" />
+            physics: Newtonian mechanics
+          </p>
+          <Icons />
+        </div>
+
+        <div className="flex flex-col lg:flex-row w-full h-auto lg:h-[636px]">
+          <div className="flex flex-col items-center lg:items-start justify-center bg-[#2A7CC7] text-white text-center lg:text-left w-full lg:w-[60%] px-8 lg:px-24 py-16">
+            <h2 className="text-lg font-bold mb-6 leading-snug">
+              WORK WITH US
+            </h2>
+
+            <h1 className="text-4xl font-bold mb-4 leading-snug">
+              Now Let’s <br className="block lg:hidden" /> grow Yours
+            </h1>
+
+            <p className="text-base mb-8 leading-relaxed max-w-[420px]">
+              The gradual accumulation of information about atomic and
+              small-scale behavior during the first quarter of the 20th
+            </p>
+
+            <button className="border border-white text-white font-bold px-10 py-3 rounded-md text-sm tracking-wide hover:bg-[#1d91d8] transition">
+              Button
+            </button>
+          </div>
+
+          <div className="w-full lg:w-[40%]">
+            <img
+              src="/images/AboutPage/grow-business.jpg"
+              alt="Work with us"
+              className="w-full h-[636px] object-cover hidden lg:block"
+            />
+          </div>
+        </div>
       </div>
     </>
   );
