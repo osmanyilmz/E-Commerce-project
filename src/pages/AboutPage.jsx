@@ -27,15 +27,15 @@ export default function AboutPage() {
       <div className="flex flex-col items-center justify-center text-center px-6 py-16 bg-[#ffffff]">
         <div className="flex flex-col lg:flex-row items-center justify-center w-full px-6 lg:px-85 py-16 bg-white">
           <div className="flex flex-col justify-center w-full lg:w-1/2 text-center lg:text-left">
-            <h4 className="text-lg font-bold text-[#252B42] mb-10 tracking-wider">
+            <h4 className="text-lg font-bold text-[#252B42] mb-5 tracking-wider">
               ABOUT COMPANY
             </h4>
 
-            <h1 className="text-3xl font-extrabold text-[#252B42] mb-4 leading-snug">
+            <h1 className="text-6xl font-bold text-[#252B42] mb-10 leading-snug">
               ABOUT US
             </h1>
 
-            <p className="text-[#737373] text-base mb-6 max-w-md lg:max-w-none leading-relaxed">
+            <p className="text-[#737373] font-semibold text-base mb-6 max-w-md lg:max-w-none leading-relaxed">
               We know how large <br className="block lg:hidden" />
               objects will act, <br className="hidden lg:block" /> but things
               <br className="block lg:hidden" /> on a small scale just do
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative w-[307px] h-[316px] lg:w-[600px] lg:h-[350px] rounded-2xl overflow-hidden shadow-md mb-10">
+          <div className="relative w-[307px] h-[316px] lg:w-[989px] lg:h-[540px] rounded-2xl overflow-hidden shadow-md mb-10">
             <img
               src="/images/AboutPage/video-image.jpg"
               alt="Video preview"
@@ -135,7 +135,7 @@ export default function AboutPage() {
         <h2 className="text-4xl font-bold text-[#252B42] mb-2 text-center">
           Meet Our <br className="block lg:hidden" /> Team
         </h2>
-        <p className="text-[#737373] text-center max-w-[360px]  text-sm">
+        <p className="text-[#737373] text-center max-w-[360px] text-sm mb-15">
           Problems trying to resolve <br className="block lg:hidden" /> the
           conflict between the two major
           <br className="block lg:hidden" />
@@ -167,7 +167,7 @@ export default function AboutPage() {
           ))}
         </div>
         <div className="bg-[#FAFAFA] px-86 py-20">
-          <h2 className="text-6xl font-bold text-[#252B42] mb-2 text-center mb-10 ">
+          <h2 className="text-5xl font-bold text-[#252B42] mb-2 text-center mb-10 ">
             Big <br className="block lg:hidden" /> Companies
             <br className="block lg:hidden" /> Are Here
           </h2>
