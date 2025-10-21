@@ -149,8 +149,8 @@ export default function Header() {
             </nav>
           </div>
           <div className="flex items-center space-x-6">
-            <a
-              href="#"
+            <Link
+              to="/signup"
               className="text-gray-600 hover:text-gray-800 flex items-center"
             >
               <User
@@ -158,7 +158,7 @@ export default function Header() {
                 className="cursor-pointer text-blue-600 hover:text-gray-800 m-1"
               />
               Login / Register
-            </a>
+            </Link>
             <Search
               size={18}
               className="cursor-pointer text-blue-600 hover:text-gray-800"
