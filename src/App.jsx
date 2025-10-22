@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 import Header from "./layout/Header";
 import PageContent from "./layout/PageContent";
 import Footer from "./layout/Footer";
@@ -12,21 +15,23 @@ import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <PageContent>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/product-detail" component={ProductDetailPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/team" component={TeamPage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/signup" component={SignUpPage} />
-        </Switch>
-      </PageContent>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <PageContent>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/product-detail" component={ProductDetailPage} />
+            <Route path="/contact" component={ContactPage} />
+            <Route path="/team" component={TeamPage} />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/signup" component={SignUpPage} />
+          </Switch>
+        </PageContent>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 
