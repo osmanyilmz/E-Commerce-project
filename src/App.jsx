@@ -12,6 +12,7 @@ import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
 import AboutPage from "./pages/AboutPage";
 import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/team" component={TeamPage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/signup" component={SignUpPage} />
+            <Route path="/login" component={LoginPage} />
           </Switch>
         </PageContent>
         <Footer />
