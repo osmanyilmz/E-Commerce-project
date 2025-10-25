@@ -11,8 +11,12 @@ import {
   Youtube,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Gravatar from "react-gravatar";
 
 export default function Header() {
+  const user = useSelector((state) => state.client.user);
+
   return (
     <header className="w-full">
       {/* --- KÜÇÜK EKRAN HEADER --- */}
@@ -148,17 +152,32 @@ export default function Header() {
               </a>
             </nav>
           </div>
+
           <div className="flex items-center space-x-6">
-            <Link
-              to="/signup"
-              className="text-gray-600 hover:text-gray-800 flex items-center"
-            >
-              <User
-                size={18}
-                className="cursor-pointer text-blue-600 hover:text-gray-800 m-1"
-              />
-              Login / Register
-            </Link>
+            {user?.email ? (
+              <div className="flex items-center space-x-3">
+                <Gravatar
+                  email={user.email}
+                  size={32}
+                  className="rounded-full border"
+                />
+                <span className="text-gray-700 font-medium">
+                  {user.name || user.email}
+                </span>
+              </div>
+            ) : (
+              <Link
+                to="/login" // ✅ signup değil login olmalı
+                className="text-gray-600 hover:text-gray-800 flex items-center"
+              >
+                <User
+                  size={18}
+                  className="cursor-pointer text-blue-600 hover:text-gray-800 m-1"
+                />
+                Login / Register
+              </Link>
+            )}
+
             <Search
               size={18}
               className="cursor-pointer text-blue-600 hover:text-gray-800"

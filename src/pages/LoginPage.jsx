@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../redux/actions/authActions";
 import { useState } from "react";
@@ -13,6 +13,9 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [errorMsg, setErrorMsg] = useState("");
+  const user = useSelector((state) => state.client.user);
+
+  console.log("Current user:", user);
 
   const onSubmit = async (data) => {
     const { email, password, remember } = data;
@@ -28,11 +31,11 @@ export default function LoginPage() {
       setErrorMsg(result.message);
     }
   };
+  console.log("Current user:", user);
 
   return (
     <div className="flex flex-col items-center justify-center py-10">
       <h2 className="text-3xl font-bold mb-6">Login</h2>
-
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 w-full max-w-md bg-gray-50 p-6 rounded-lg shadow-md"
