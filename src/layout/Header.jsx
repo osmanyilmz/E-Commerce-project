@@ -167,7 +167,7 @@ export default function Header() {
               </div>
             ) : (
               <Link
-                to="/login" // ✅ signup değil login olmalı
+                to="/login"
                 className="text-gray-600 hover:text-gray-800 flex items-center"
               >
                 <User

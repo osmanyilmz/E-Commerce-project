@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import store from "./redux/store";
+import { initializeAuth } from "./redux/actions/authInit";
 
 import Header from "./layout/Header";
 import PageContent from "./layout/PageContent";
@@ -14,27 +16,39 @@ import AboutPage from "./pages/AboutPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 
-function App() {
+function AppContent() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initializeAuth());
+  }, [dispatch]);
+
+  return (
+    <Router>
+      <Header />
+      <PageContent>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/product-detail" component={ProductDetailPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/team" component={TeamPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/signup" component={SignUpPage} />
+          <Route path="/login" component={LoginPage} />
+        </Switch>
+      </PageContent>
+      <Footer />
+    </Router>
+  );
+}
+
+export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
-        <PageContent>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route path="/product-detail" component={ProductDetailPage} />
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/team" component={TeamPage} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/signup" component={SignUpPage} />
-            <Route path="/login" component={LoginPage} />
-          </Switch>
-        </PageContent>
-        <Footer />
+        <AppContent />
       </Router>
     </Provider>
   );
 }
-
-export default App;

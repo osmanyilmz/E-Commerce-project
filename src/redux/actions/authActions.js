@@ -13,6 +13,8 @@ export const loginUser = (email, password, remember) => {
 
       dispatch(setUser(user));
 
+      axiosInstance.defaults.headers.common["Authorization"] = token;
+
       if (remember) {
         localStorage.setItem("token", token);
       }
