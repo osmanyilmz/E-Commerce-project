@@ -16,6 +16,9 @@ import Gravatar from "react-gravatar";
 
 export default function Header() {
   const user = useSelector((state) => state.client.user);
+  const { categories, fetchState } = useSelector((state) => state.product);
+  const womenCategories = categories.filter((cat) => cat.gender === "k");
+  const menCategories = categories.filter((cat) => cat.gender === "e");
 
   return (
     <header className="w-full">
@@ -95,47 +98,55 @@ export default function Header() {
                 <Link to="/shop" className="hover:text-gray-800">
                   Shop
                 </Link>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:flex bg-white shadow-lg border p-6 space-x-12 z-50">
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-2">Kadın</h3>
-                    <ul className="space-y-1 text-gray-600">
-                      <li>
-                        <a href="#">Bags</a>
-                      </li>
-                      <li>
-                        <a href="#">Belts</a>
-                      </li>
-                      <li>
-                        <a href="#">Cosmetics</a>
-                      </li>
-                      <li>
-                        <a href="#">Bags</a>
-                      </li>
-                      <li>
-                        <a href="#">Hats</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-2">Erkek</h3>
-                    <ul className="space-y-1 text-gray-600">
-                      <li>
-                        <a href="#">Bags</a>
-                      </li>
-                      <li>
-                        <a href="#">Belts</a>
-                      </li>
-                      <li>
-                        <a href="#">Cosmetics</a>
-                      </li>
-                      <li>
-                        <a href="#">Bags</a>
-                      </li>
-                      <li>
-                        <a href="#">Hats</a>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="absolute left-0 top-full mt-2 hidden group-hover:block hover:block bg-white shadow-lg border p-6 space-x-12 z-50 transition-all duration-150">
+                  {fetchState === "FETCHING" && (
+                    <p className="text-gray-400 italic">Loading...</p>
+                  )}
+
+                  {fetchState === "FETCHED" && (
+                    <div className="flex space-x-12">
+                      {/* Kadın kategorileri */}
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-2">Kadın</h3>
+                        <ul className="space-y-1 text-gray-600">
+                          {womenCategories.map((cat) => (
+                            <li key={cat.id}>
+                              <Link
+                                to={`/shop/kadin/${cat.title
+                                  .toLowerCase()
+                                  .replace(" ", "-")}/${cat.id}`}
+                                className="block px-2 py-1 hover:bg-gray-100 rounded"
+                              >
+                                {cat.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="font-bold text-gray-800 mb-2">Erkek</h3>
+                        <ul className="space-y-1 text-gray-600">
+                          {menCategories.map((cat) => (
+                            <li key={cat.id}>
+                              <Link
+                                to={`/shop/erkek/${cat.title
+                                  .toLowerCase()
+                                  .replace(" ", "-")}/${cat.id}`}
+                                className="block px-2 py-1 hover:bg-gray-100 rounded"
+                              >
+                                {cat.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {fetchState === "FAILED" && (
+                    <p className="text-red-400 italic">Failed to load</p>
+                  )}
                 </div>
               </div>
               <Link to="/about" className="hover:text-gray-800">
