@@ -1,4 +1,5 @@
 import axiosInstance from "../../api/axiosInstance";
+
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
 export const SET_TOTAL = "SET_TOTAL";
@@ -52,6 +53,23 @@ export const fetchCategories = () => {
       dispatch(setFetchState("FETCHED"));
     } catch (error) {
       console.error("Failed to fetch categories:", error);
+      dispatch(setFetchState("FAILED"));
+    }
+  };
+};
+
+export const fetchProducts = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(setFetchState("FETCHING"));
+      const response = await axiosInstance.get("/products");
+      const { total, products } = response.data;
+
+      dispatch(setProductList(products));
+      dispatch(setTotal(total));
+      dispatch(setFetchState("FETCHED"));
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
       dispatch(setFetchState("FAILED"));
     }
   };
