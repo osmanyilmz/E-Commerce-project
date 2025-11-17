@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../redux/actions/productActions";
+import { fetchProducts, setCategory } from "../redux/actions/productActions";
+import { useLocation } from "react-router-dom";
 
 import ShopCards from "../components/ShopCards";
 import ProductCard from "../components/ProductCard";
@@ -9,14 +10,27 @@ import Icons from "../components/common/Icons";
 
 export default function ShopPage() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
-  const { productList, fetchState, total } = useSelector(
-    (state) => state.product
-  );
+  const { productList, fetchState, total, category, filter, sort } =
+    useSelector((state) => state.product);
+
+  useEffect(() => {
+    const path = location.pathname || "";
+    const match = path.match(/\/shop(?:\/[^/]+){2}\/(\d+)(?:\/|$)/);
+    if (match && match[1]) {
+      const categoryIdFromUrl = match[1];
+      if (categoryIdFromUrl !== String(category)) {
+        dispatch(setCategory(categoryIdFromUrl));
+      }
+    } else {
+      dispatch(setCategory(null));
+    }
+  }, [location.pathname, category, dispatch]);
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [category, filter, sort, dispatch]);
 
   if (fetchState === "FETCHING") {
     return (
