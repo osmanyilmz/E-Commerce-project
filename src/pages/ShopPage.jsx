@@ -7,6 +7,7 @@ import ShopCards from "../components/ShopCards";
 import ProductCard from "../components/ProductCard";
 import FilterBar from "../components/FilterBar";
 import Icons from "../components/common/Icons";
+import Pagination from "../components/Pagination";
 
 export default function ShopPage() {
   const dispatch = useDispatch();
@@ -63,6 +64,8 @@ export default function ShopPage() {
             <ProductCard key={idx} {...item} />
           ))}
         </div>
+
+        <Pagination />
 
         <div className="flex justify-center items-center mt-10 mb-10">
           <p className="text-gray-600">Total Products: {total}</p>
