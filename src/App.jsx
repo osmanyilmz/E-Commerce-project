@@ -31,7 +31,11 @@ function AppContent() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/product-detail" component={ProductDetailPage} />
+          <Route
+            path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId"
+            component={ProductDetailPage}
+          />
+          <Route path="/product-detail/:id" component={ProductDetailPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/team" component={TeamPage} />
           <Route path="/about" component={AboutPage} />

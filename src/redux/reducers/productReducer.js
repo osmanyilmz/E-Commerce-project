@@ -8,11 +8,13 @@ import {
   SET_FILTER,
   SET_CATEGORY,
   SET_SORT,
+  SET_SINGLE_PRODUCT,
 } from "../actions/productActions";
 
 const initialState = {
   categories: [],
   productList: [],
+  product: null,
   total: 0,
   limit: 25,
   offset: 0,
@@ -42,6 +44,8 @@ export default function productReducer(state = initialState, action) {
       return { ...state, sort: action.payload };
     case SET_FILTER:
       return { ...state, filter: action.payload };
+    case SET_SINGLE_PRODUCT:
+      return { ...state, product: action.payload };
     default:
       return state;
   }

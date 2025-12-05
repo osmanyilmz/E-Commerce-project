@@ -9,6 +9,7 @@ export const SET_OFFSET = "SET_OFFSET";
 export const SET_FILTER = "SET_FILTER";
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_SORT = "SET_SORT";
+export const SET_SINGLE_PRODUCT = "SET_SINGLE_PRODUCT";
 
 export const setCategories = (categories) => ({
   type: SET_CATEGORIES,
@@ -52,6 +53,11 @@ export const setCategory = (category) => ({
 export const setSort = (sort) => ({
   type: SET_SORT,
   payload: sort,
+});
+
+export const setSingleProduct = (product) => ({
+  type: SET_SINGLE_PRODUCT,
+  payload: product,
 });
 
 export const fetchCategories = () => {
@@ -99,4 +105,15 @@ export const fetchProducts = () => {
       dispatch(setFetchState("FAILED"));
     }
   };
+};
+
+export const fetchSingleProduct = (id) => async (dispatch) => {
+  dispatch(setFetchState("FETCHING"));
+  try {
+    const response = await axiosInstance.get(`/products/${id}`);
+    dispatch({ type: "SET_SINGLE_PRODUCT", payload: response.data });
+    dispatch(setFetchState("FETCHED"));
+  } catch (error) {
+    dispatch(setFetchState("FAILED"));
+  }
 };

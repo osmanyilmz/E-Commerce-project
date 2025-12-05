@@ -1,37 +1,51 @@
-import ProductDetailCard from "../components/ProductDetailPage/ProductDetailCard";
-import ProductDetails from "../components/ProductDetailPage/ProductDetails";
-import Icons from "../components/common/Icons";
-import ProductCard from "../components/ProductCard";
+import { useParams, useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSingleProduct } from "../redux/actions/productActions";
 
 export default function ProductDetailPage() {
-  const productImages = [
-    "product-detail-page-1.png",
-    "product-detail-page-2.png",
-    "product-detail-page-3.png",
-    "product-detail-page-4.png",
-  ];
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-  const products = productImages.map((img) => ({
-    image: `/images/ProductDetailPage/${img}`,
-  }));
+  const { product, fetchState } = useSelector((state) => state.product);
+
+  useEffect(() => {
+    if (id) dispatch(fetchSingleProduct(id));
+  }, [id]);
+
+  if (fetchState === "FETCHING")
+    return <div className="text-center mt-20">Loading...</div>;
+  if (!product) return <div className="text-center mt-20">Ürün bulunamadı</div>;
 
   return (
-    <>
-      <ProductDetailCard />
-      <ProductDetails />
-      <div className="bg-[#FAFAFA] py-4 px-4 w-full">
-        <h2 className="text-2xl lg:text-3xl font-bold text-black mb-3 text-center">
-          BESTSELLER PRODUCTS
-          <hr className="mt-10 mb-5 border-t border-[#ECECEC] w-[85%] mx-auto lg:w-[78%]" />
-        </h2>
+    <div className="flex flex-col items-center p-10">
+      <button
+        onClick={() => history.goBack()}
+        className="px-4 py-2 bg-gray-200 rounded-md mb-8 hover:bg-gray-300 self-start"
+      >
+        ← Back
+      </button>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-50 lg:py-15 ">
-          {products.map((item, idx) => (
-            <ProductCard key={idx} {...item} />
-          ))}
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-6xl">
+        <img
+          src={product.images?.[0]?.url}
+          alt={product.name}
+          className="w-full max-w-sm h-auto object-cover rounded-lg shadow"
+        />
+
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <h1 className="text-3xl font-bold">{product.name}</h1>
+          <p className="text-gray-600 mt-3">{product.description}</p>
+          <p className="text-2xl font-semibold mt-5">${product.price}</p>
+          <p className="text-gray-500 mt-3">
+            Stock: <strong>{product.stock}</strong>
+          </p>
+          <p className="text-gray-500">
+            Rating: ⭐ <strong>{product.rating}</strong>
+          </p>
         </div>
       </div>
-      <Icons />
-    </>
+    </div>
   );
 }
