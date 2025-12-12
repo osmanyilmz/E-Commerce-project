@@ -9,7 +9,7 @@ import shoppingCartReducer from "./reducers/shoppingCartReducer";
 const rootReducer = combineReducers({
   client: clientReducer,
   product: productReducer,
-  cart: shoppingCartReducer,
+  shoppingCart: shoppingCartReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

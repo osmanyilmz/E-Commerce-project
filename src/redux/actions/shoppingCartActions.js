@@ -1,4 +1,28 @@
-export const setCart = (cart) => ({ type: "SET_CART", payload: cart });
+export const addToCart = (product) => {
+  return (dispatch, getState) => {
+    const { cart } = getState().shoppingCart;
+
+    const existing = cart.find((item) => item.product.id === product.id);
+
+    let updatedCart;
+
+    if (existing) {
+      updatedCart = cart.map((item) =>
+        item.product.id === product.id
+          ? { ...item, count: item.count + 1 }
+          : item
+      );
+    } else {
+      updatedCart = [...cart, { count: 1, checked: true, product: product }];
+    }
+
+    dispatch({
+      type: "SET_CART",
+      payload: updatedCart,
+    });
+  };
+};
+
 export const setPayment = (payment) => ({
   type: "SET_PAYMENT",
   payload: payment,

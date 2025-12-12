@@ -12,13 +12,20 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import Gravatar from "react-gravatar";
 
 export default function Header() {
   const user = useSelector((state) => state.client.user);
   const { categories, fetchState } = useSelector((state) => state.product);
+  const { cart } = useSelector((state) => state.shoppingCart);
+
+  const [cartOpen, setCartOpen] = useState(false);
+
   const womenCategories = categories.filter((cat) => cat.gender === "k");
   const menCategories = categories.filter((cat) => cat.gender === "e");
+
+  const totalCount = cart.reduce((t, item) => t + item.count, 0);
 
   return (
     <header className="w-full">
@@ -193,10 +200,64 @@ export default function Header() {
               size={18}
               className="cursor-pointer text-blue-600 hover:text-gray-800"
             />
-            <ShoppingCart
-              size={18}
-              className="cursor-pointer text-blue-600 hover:text-gray-800"
-            />
+            <div className="relative">
+              <div
+                onClick={() => setCartOpen(!cartOpen)}
+                className="cursor-pointer relative"
+              >
+                <ShoppingCart size={18} className="text-blue-600" />
+                {totalCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-1 rounded-full">
+                    {totalCount}
+                  </span>
+                )}
+              </div>
+
+              {cartOpen && (
+                <div className="absolute right-0 mt-3 w-80 bg-white shadow-lg border rounded-lg p-4 z-50">
+                  <h3 className="text-lg font-bold mb-3">Shopping Cart</h3>
+
+                  {cart.length === 0 ? (
+                    <p className="text-gray-500 text-sm">Your cart is empty.</p>
+                  ) : (
+                    <div className="space-y-3 max-h-72 overflow-y-auto">
+                      {cart.map((item) => (
+                        <div
+                          key={item.product.id}
+                          className="flex items-center gap-3 border-b pb-2"
+                        >
+                          <img
+                            src={item.product.images?.[0]?.url}
+                            className="w-14 h-14 object-cover rounded"
+                          />
+                          <div>
+                            <p className="font-semibold">{item.product.name}</p>
+                            <p className="text-sm text-gray-600">
+                              {item.count} × ${item.product.price}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="mt-4 flex flex-col gap-2">
+                    <Link
+                      to="/cart"
+                      className="w-full text-center py-2 bg-[#23A6F0] text-white rounded hover:bg-blue-700"
+                    >
+                      Go to Cart
+                    </Link>
+                    <Link
+                      to="/checkout"
+                      className="w-full text-center py-2 bg-green-500 text-white rounded hover:bg-green-700"
+                    >
+                      Checkout
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <Heart
               size={18}
               className="cursor-pointer text-blue-600 hover:text-gray-800"

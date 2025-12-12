@@ -2,7 +2,6 @@ import EditorsPick from "../components/EditorsPick";
 import FeaturedProducts from "../components/FeaturedProducts";
 import Slider from "../components/Slider";
 import ContentCard from "../components/ContentCard";
-import CategoryList from "../components/CategoryList";
 
 const slides = [
   {
@@ -86,7 +85,6 @@ export default function HomePage() {
           <Slider slides={slides} />
         </div>
       </div>
-      <CategoryList />
       <EditorsPick />
       <FeaturedProducts />
       <Slider slides={productSlides} variant="product" />

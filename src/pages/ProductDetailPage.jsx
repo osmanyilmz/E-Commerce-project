@@ -2,6 +2,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../redux/actions/productActions";
+import { addToCart } from "../redux/actions/shoppingCartActions";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -13,6 +14,10 @@ export default function ProductDetailPage() {
   useEffect(() => {
     if (id) dispatch(fetchSingleProduct(id));
   }, [id]);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   if (fetchState === "FETCHING")
     return <div className="text-center mt-20">Loading...</div>;
@@ -37,10 +42,20 @@ export default function ProductDetailPage() {
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="text-gray-600 mt-3">{product.description}</p>
+
           <p className="text-2xl font-semibold mt-5">${product.price}</p>
+
+          <button
+            onClick={handleAddToCart}
+            className="mt-5 px-6 py-3 bg-[#23A6F0] text-white rounded-md hover:bg-blue-700 transition"
+          >
+            Add to Cart
+          </button>
+
           <p className="text-gray-500 mt-3">
             Stock: <strong>{product.stock}</strong>
           </p>
+
           <p className="text-gray-500">
             Rating: ⭐ <strong>{product.rating}</strong>
           </p>
