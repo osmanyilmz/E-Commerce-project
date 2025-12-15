@@ -15,6 +15,7 @@ import TeamPage from "./pages/TeamPage";
 import AboutPage from "./pages/AboutPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import ShoppingCartPage from "./components/ProductDetailPage/ShoppingCartPage";
 
 function AppContent() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function AppContent() {
             component={ProductDetailPage}
           />
           <Route path="/product-detail/:id" component={ProductDetailPage} />
+          <Route path="/cart" component={ShoppingCartPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/team" component={TeamPage} />
           <Route path="/about" component={AboutPage} />
