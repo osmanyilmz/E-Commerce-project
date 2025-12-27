@@ -16,6 +16,8 @@ import AboutPage from "./pages/AboutPage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ShoppingCartPage from "./components/ProductDetailPage/ShoppingCartPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import CreateOrderPage from "./pages/CreateOrderPage";
 
 function AppContent() {
   const dispatch = useDispatch();
@@ -26,7 +28,7 @@ function AppContent() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <>
       <Header />
       <PageContent>
         <Switch>
@@ -36,6 +38,7 @@ function AppContent() {
             path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId"
             component={ProductDetailPage}
           />
+          <ProtectedRoute path="/create-order" component={CreateOrderPage} />
           <Route path="/product-detail/:id" component={ProductDetailPage} />
           <Route path="/cart" component={ShoppingCartPage} />
           <Route path="/contact" component={ContactPage} />
@@ -46,7 +49,7 @@ function AppContent() {
         </Switch>
       </PageContent>
       <Footer />
-    </Router>
+    </>
   );
 }
 

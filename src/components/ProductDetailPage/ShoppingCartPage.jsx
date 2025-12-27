@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   updateCount,
   toggleChecked,
@@ -8,6 +9,8 @@ import {
 export default function ShoppingCartPage() {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.shoppingCart);
+  const user = useSelector((state) => state.client.user);
+  const history = useHistory();
 
   const total = cart
     .filter((item) => item.checked)
@@ -16,6 +19,20 @@ export default function ShoppingCartPage() {
   const SHIPPING_PRICE = 29.99;
   const DISCOUNT = total > 150 ? SHIPPING_PRICE : 0;
   const grandTotal = total + SHIPPING_PRICE - DISCOUNT;
+
+  const handleCreateOrder = () => {
+    if (!user?.token) {
+      history.push("/login");
+      return;
+    }
+
+    if (cart.filter((item) => item.checked).length === 0) {
+      alert("Please select at least one product to continue.");
+      return;
+    }
+
+    history.push("/create-order");
+  };
 
   return (
     <div className="w-full flex justify-center p-10 bg-gray-50">
@@ -100,6 +117,10 @@ export default function ShoppingCartPage() {
         {/* RIGHT SIDE - ORDER SUMMARY */}
         <div className="bg-white shadow p-6 rounded-lg h-fit sticky top-6">
           <button className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 mb-6">
+          <button
+            onClick={handleCreateOrder}
+            className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 mb-6"
+          >
             Create Order →
           </button>
 
