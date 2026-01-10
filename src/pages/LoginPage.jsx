@@ -10,28 +10,22 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const dispatch = useDispatch();
   const history = useHistory();
   const [errorMsg, setErrorMsg] = useState("");
   const user = useSelector((state) => state.client.user);
-
-  console.log("Current user:", user);
 
   const onSubmit = async (data) => {
     const { email, password, remember } = data;
     const result = await dispatch(loginUser(email, password, remember));
 
     if (result.success) {
-      if (history.length > 1) {
-        history.goBack();
-      } else {
-        history.push("/");
-      }
+      history.push("/");
     } else {
       setErrorMsg(result.message);
     }
   };
-  console.log("Current user:", user);
 
   return (
     <div className="flex flex-col items-center justify-center py-10">
@@ -83,6 +77,17 @@ export default function LoginPage() {
         </button>
 
         {errorMsg && <p className="text-red-600 mt-2">{errorMsg}</p>}
+
+        <p className="text-sm text-center mt-4">
+          Don’t have an account?{" "}
+          <button
+            type="button"
+            onClick={() => history.push("/signup")}
+            className="text-blue-600 hover:underline font-medium"
+          >
+            Register
+          </button>
+        </p>
       </form>
     </div>
   );

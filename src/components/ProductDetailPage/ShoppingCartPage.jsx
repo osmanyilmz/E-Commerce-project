@@ -116,7 +116,6 @@ export default function ShoppingCartPage() {
 
         {/* RIGHT SIDE - ORDER SUMMARY */}
         <div className="bg-white shadow p-6 rounded-lg h-fit sticky top-6">
-          <button className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 mb-6">
           <button
             onClick={handleCreateOrder}
             className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 mb-6"

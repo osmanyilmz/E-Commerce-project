@@ -15,9 +15,13 @@ export default function SignUpPage() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      role_id: "",
+    },
+  });
 
-  const selectedRole = watch("role_id");
+  const selectedRoleId = Number(watch("role_id"));
   const password = watch("password");
 
   useEffect(() => {
@@ -25,6 +29,12 @@ export default function SignUpPage() {
       .get("/roles")
       .then((res) => {
         setRoles(res.data);
+
+        const customerRole = res.data.find((role) => role.name === "Customer");
+        if (customerRole) {
+          document.querySelector("select[name='role_id']").value =
+            customerRole.id;
+        }
       })
       .catch(() => {
         setErrorMsg("Could not load roles!");
@@ -36,14 +46,17 @@ export default function SignUpPage() {
     setErrorMsg("");
     setSuccessMsg("");
 
+    const roleId = Number(data.role_id);
+    const selectedRole = roles.find((r) => r.id === roleId);
+
     try {
       const formattedData =
-        Number(data.role_id) === 3
+        selectedRole?.name === "Store"
           ? {
               name: data.name,
               email: data.email,
               password: data.password,
-              role_id: data.role_id,
+              role_id: roleId,
               store: {
                 name: data.store_name,
                 phone: data.store_phone,
@@ -55,7 +68,7 @@ export default function SignUpPage() {
               name: data.name,
               email: data.email,
               password: data.password,
-              role_id: data.role_id,
+              role_id: roleId,
             };
 
       await axiosInstance.post("/signup", formattedData);
@@ -122,7 +135,7 @@ export default function SignUpPage() {
               required: "Password is required",
               pattern: {
                 value:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
                 message:
                   "Min 8 chars with upper, lower, number and special char",
               },
@@ -154,18 +167,18 @@ export default function SignUpPage() {
         <div>
           <label className="block font-medium">Role</label>
           <select
-            {...register("role_id")}
+            {...register("role_id", { required: true })}
             className="w-full border p-2 rounded"
           >
-            {roles.map((role, index) => (
-              <option key={role.id} value={role.id} selected={index === 2}>
+            {roles.map((role) => (
+              <option key={role.id} value={role.id}>
                 {role.name}
               </option>
             ))}
           </select>
         </div>
 
-        {Number(selectedRole) === 3 && (
+        {roles.find((r) => r.id === selectedRoleId)?.name === "Store" && (
           <>
             <div>
               <label className="block font-medium">Store Name</label>
@@ -225,7 +238,7 @@ export default function SignUpPage() {
                 {...register("bank_account", {
                   required: "Bank account is required",
                   pattern: {
-                    value: /^TR\d{2}\d{5}[0-9A-Z]{16}$/,
+                    value: /^TR\d{24}$/,
                     message: "Invalid IBAN format",
                   },
                 })}
