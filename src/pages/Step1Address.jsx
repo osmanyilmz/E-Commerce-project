@@ -37,7 +37,7 @@ export default function Step1Address({ onNext }) {
 
       try {
         const res = await axiosInstance.get("/user/address", {
-          headers: { Authorization: `Bearer ${token}` },
+          Authorization: `Bearer ${token}`,
         });
         setAddresses(res.data);
       } catch (err) {

@@ -14,6 +14,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Gravatar from "react-gravatar";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Header() {
   const user = useSelector((state) => state.client.user);
@@ -26,6 +28,12 @@ export default function Header() {
   const menCategories = categories.filter((cat) => cat.gender === "e");
 
   const totalCount = cart.reduce((t, item) => t + item.count, 0);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setCartOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="w-full">
@@ -244,12 +252,14 @@ export default function Header() {
                   <div className="mt-4 flex flex-col gap-2">
                     <Link
                       to="/cart"
+                      onClick={() => setCartOpen(false)}
                       className="w-full text-center py-2 bg-[#23A6F0] text-white rounded hover:bg-blue-700"
                     >
                       Go to Cart
                     </Link>
                     <Link
                       to="/checkout"
+                      onClick={() => setCartOpen(false)}
                       className="w-full text-center py-2 bg-green-500 text-white rounded hover:bg-green-700"
                     >
                       Checkout
