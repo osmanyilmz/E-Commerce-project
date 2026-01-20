@@ -40,15 +40,15 @@ export const setOffset = (offset) => ({
   payload: offset,
 });
 
-export const setFilter = (filter) => ({
-  type: SET_FILTER,
-  payload: filter,
-});
+export const setFilter = (filter) => (dispatch) => {
+  dispatch({ type: SET_FILTER, payload: filter });
+  dispatch(setOffset(0));
+};
 
-export const setCategory = (category) => ({
-  type: SET_CATEGORY,
-  payload: category,
-});
+export const setCategory = (category) => (dispatch) => {
+  dispatch({ type: SET_CATEGORY, payload: category });
+  dispatch(setOffset(0));
+};
 
 export const setSort = (sort) => ({
   type: SET_SORT,

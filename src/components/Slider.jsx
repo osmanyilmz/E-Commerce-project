@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Slider({ slides, variant = "default" }) {
   const [current, setCurrent] = useState(0);
@@ -94,9 +95,11 @@ export default function Slider({ slides, variant = "default" }) {
             </button>
           </div>
         ) : (
-          <button className="bg-green-500 text-white text-sm md:text-base font-semibold px-6 py-2 rounded hover:bg-green-600 transition lg:px-20 lg:py-4">
-            {slides[current].buttonLabel}
-          </button>
+          <Link to="/shop">
+            <button className="bg-green-500 text-white text-sm md:text-base font-semibold px-6 py-2 rounded hover:bg-green-600 transition lg:px-20 lg:py-4">
+              {slides[current].buttonLabel}
+            </button>
+          </Link>
         )}
       </div>
     );

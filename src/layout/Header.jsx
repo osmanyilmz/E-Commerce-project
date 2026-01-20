@@ -110,10 +110,10 @@ export default function Header() {
                 Home
               </Link>
               <div className="relative group">
-                <Link to="/shop" className="hover:text-gray-800">
+                <Link to="/shop" className="hover:text-gray-800 inline-block">
                   Shop
                 </Link>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:block hover:block bg-white shadow-lg border p-6 space-x-12 z-50 transition-all duration-150">
+                <div className="absolute left-0 top-full invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-white shadow-lg border p-6 space-x-12 z-50 transition-all duration-200">
                   {fetchState === "FETCHING" && (
                     <p className="text-gray-400 italic">Loading...</p>
                   )}

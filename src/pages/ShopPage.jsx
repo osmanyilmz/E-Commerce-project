@@ -13,25 +13,31 @@ export default function ShopPage() {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const { productList, fetchState, total, category, filter, sort } =
-    useSelector((state) => state.product);
+  const {
+    productList,
+    fetchState,
+    total,
+    category,
+    filter,
+    sort,
+    limit,
+    offset,
+  } = useSelector((state) => state.product);
 
   useEffect(() => {
     const path = location.pathname || "";
     const match = path.match(/\/shop(?:\/[^/]+){2}\/(\d+)(?:\/|$)/);
+
     if (match && match[1]) {
-      const categoryIdFromUrl = match[1];
-      if (categoryIdFromUrl !== String(category)) {
-        dispatch(setCategory(categoryIdFromUrl));
-      }
+      dispatch(setCategory(match[1]));
     } else {
       dispatch(setCategory(null));
     }
-  }, [location.pathname, category, dispatch]);
+  }, [location.pathname, dispatch]);
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [category, filter, sort, dispatch]);
+  }, [category, filter, sort, limit, offset, dispatch]);
 
   if (fetchState === "FETCHING") {
     return (

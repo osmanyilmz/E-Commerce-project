@@ -24,6 +24,7 @@ export default function FilterBar() {
     debounceRef.current = setTimeout(() => {
       if ((filterFromStore || "") !== (inputValue || "")) {
         dispatch(setFilter(inputValue));
+        dispatch(fetchProducts());
       }
     }, 600);
 
@@ -57,7 +58,10 @@ export default function FilterBar() {
         <select
           className="border border-[#DDDDDD] rounded-md px-3 py-2 text-sm bg-[#ffffff] shadow-sm"
           value={sortFromStore || ""}
-          onChange={(e) => dispatch(setSort(e.target.value))}
+          onChange={(e) => {
+            dispatch(setSort(e.target.value));
+            dispatch(fetchProducts());
+          }}
         >
           <option value="">Sort</option>
           <option value="price:asc">Price: Low to High</option>
