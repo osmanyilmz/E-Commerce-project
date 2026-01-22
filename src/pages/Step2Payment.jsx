@@ -23,7 +23,6 @@ export default function Step2Payment() {
   const [editingCard, setEditingCard] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const [paymentCvv, setPaymentCvv] = useState("");
   const [installment, setInstallment] = useState(1);
   const [use3D, setUse3D] = useState(false);
 
@@ -93,33 +92,27 @@ export default function Step2Payment() {
       return;
     }
 
-    if (!paymentCvv || paymentCvv.length !== 3) {
-      alert("CVV geçersiz");
-      return;
-    }
-
     try {
       const payload = {
-        address_id: addressId,
-        order_date: new Date().toISOString(),
+        address_id: Number(addressId),
+        order_date: new Date().toISOString().slice(0, 19),
         card_no: Number(selectedCard.card_no),
         card_name: selectedCard.name_on_card,
         card_expire_month: Number(selectedCard.expire_month),
         card_expire_year: Number(selectedCard.expire_year),
-        card_ccv: Number(paymentCvv),
-        price: Number(cartTotal.toFixed(2)),
+        price: Math.round(cartTotal),
         products: cart.map((item) => ({
-          product_id: item.product.id,
+          product_id: Number(item.product.id),
           count: Number(item.count),
-          detail: "",
+          detail: item.product.name || "default",
         })),
       };
+      console.log("ADDRESS ID:", addressId);
 
       await axiosInstance.post("/order", payload);
 
       alert("🎉 Siparişiniz başarıyla oluşturuldu!");
       dispatch({ type: "CLEAR_CART" });
-      setPaymentCvv("");
       history.push("/");
     } catch (err) {
       console.error(err);
@@ -185,15 +178,6 @@ export default function Step2Payment() {
                 </option>
               ))}
             </select>
-
-            {/* CVV */}
-            <input
-              className="w-1/4 border rounded px-3 py-2"
-              placeholder="CVV"
-              maxLength={3}
-              value={paymentCvv}
-              onChange={(e) => setPaymentCvv(e.target.value.replace(/\D/g, ""))}
-            />
           </div>
 
           <input
