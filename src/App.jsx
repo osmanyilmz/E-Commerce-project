@@ -18,6 +18,7 @@ import LoginPage from "./pages/LoginPage";
 import ShoppingCartPage from "./components/ProductDetailPage/ShoppingCartPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CreateOrderPage from "./pages/CreateOrderPage";
+import OrdersPage from "./pages/OrdersPage";
 
 function AppContent() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function AppContent() {
             component={ProductDetailPage}
           />
           <ProtectedRoute path="/create-order" component={CreateOrderPage} />
+          <ProtectedRoute path="/orders" component={OrdersPage} />
           <Route path="/product-detail/:id" component={ProductDetailPage} />
           <Route path="/cart" component={ShoppingCartPage} />
           <Route path="/contact" component={ContactPage} />

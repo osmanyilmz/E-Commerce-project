@@ -181,15 +181,44 @@ export default function Header() {
 
           <div className="flex items-center space-x-6">
             {user?.email ? (
-              <div className="flex items-center space-x-3">
-                <Gravatar
-                  email={user.email}
-                  size={32}
-                  className="rounded-full border"
-                />
-                <span className="text-gray-700 font-medium">
-                  {user.name || user.email}
-                </span>
+              <div className="relative group">
+                <div className="flex items-center space-x-3 cursor-pointer">
+                  <Gravatar
+                    email={user.email}
+                    size={32}
+                    className="rounded-full border"
+                  />
+                  <span className="text-gray-700 font-medium">
+                    {user.name || user.email}
+                  </span>
+                </div>
+
+                <ul
+                  className="absolute right-0 mt-2 w-40 bg-white border shadow-lg rounded
+                 invisible opacity-0 group-hover:visible group-hover:opacity-100
+                 transition-all duration-200 z-50"
+                >
+                  <li>
+                    <Link
+                      to="/orders"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                    >
+                      Siparişlerim
+                    </Link>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => {
+                        localStorage.removeItem("token");
+                        sessionStorage.removeItem("token");
+                        window.location.href = "/login";
+                      }}
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
+                    >
+                      Çıkış Yap
+                    </button>
+                  </li>
+                </ul>
               </div>
             ) : (
               <Link
