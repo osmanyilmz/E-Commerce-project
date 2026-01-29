@@ -96,7 +96,7 @@ export default function Slider({ slides, variant = "default" }) {
           </div>
         ) : (
           <Link to="/shop">
-            <button className="bg-green-500 text-white text-sm md:text-base font-semibold px-6 py-2 rounded hover:bg-green-600 transition lg:px-20 lg:py-4">
+            <button className="bg-green-500 text-white text-sm md:text-base font-semibold cursor-pointer px-6 py-2 rounded hover:bg-green-600 transition lg:px-20 lg:py-4">
               {slides[current].buttonLabel}
             </button>
           </Link>

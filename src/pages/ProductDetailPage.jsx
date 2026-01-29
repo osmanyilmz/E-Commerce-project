@@ -25,11 +25,31 @@ export default function ProductDetailPage() {
 
   return (
     <div className="flex flex-col items-center p-10">
+      <div className="w-full max-w-6xl mb-4 self-start">
+        <div className="text-m text-gray-500">
+          <span
+            onClick={() => history.push("/")}
+            className="text-gray-800 font-medium cursor-pointer hover:underline"
+          >
+            Home
+          </span>
+
+          <span className="mx-2">{">"}</span>
+
+          <span
+            onClick={() => history.push("/shop")}
+            className="cursor-pointer hover:underline"
+          >
+            Shop
+          </span>
+        </div>
+      </div>
+
       <button
         onClick={() => history.goBack()}
-        className="px-4 py-2 bg-gray-200 rounded-md mb-8 hover:bg-gray-300 self-start"
+        className="px-4 py-2 bg-[#23A6F0] hover:bg-blue-700 transition rounded-md mb-5 self-start"
       >
-        ← Back
+        <p className="text-white">← Previous</p>
       </button>
 
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-6xl">

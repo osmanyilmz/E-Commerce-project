@@ -19,6 +19,7 @@ import ShoppingCartPage from "./components/ProductDetailPage/ShoppingCartPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CreateOrderPage from "./pages/CreateOrderPage";
 import OrdersPage from "./pages/OrdersPage";
+import Blog from "./pages/Blog";
 
 function AppContent() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function AppContent() {
           <Route path="/cart" component={ShoppingCartPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/team" component={TeamPage} />
+          <Route path="/blog" component={Blog} />{" "}
           <Route path="/about" component={AboutPage} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/login" component={LoginPage} />

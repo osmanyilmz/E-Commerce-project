@@ -167,11 +167,14 @@ export default function Header() {
               <Link to="/about" className="hover:text-gray-800">
                 About
               </Link>
-              <a href="#" className="hover:text-gray-800">
+              <Link to="/blog" className="hover:text-gray-800">
                 Blog
-              </a>
+              </Link>
               <Link to="/contact" className="hover:text-gray-800">
                 Contact
+              </Link>
+              <Link to="/team" className="hover:text-gray-800">
+                Team
               </Link>
               <a href="#" className="hover:text-gray-800">
                 Pages
@@ -282,10 +285,11 @@ export default function Header() {
                     <Link
                       to="/cart"
                       onClick={() => setCartOpen(false)}
-                      className="w-full text-center py-2 bg-[#23A6F0] text-white rounded hover:bg-blue-700"
+                      className="w-full text-center py-2 bg-orange-500 text-white rounded hover:bg-orange-700"
                     >
                       Go to Cart
                     </Link>
+                    {/* 
                     <Link
                       to="/checkout"
                       onClick={() => setCartOpen(false)}
@@ -293,6 +297,7 @@ export default function Header() {
                     >
                       Checkout
                     </Link>
+                    */}
                   </div>
                 </div>
               )}

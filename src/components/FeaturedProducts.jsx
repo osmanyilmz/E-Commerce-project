@@ -13,7 +13,11 @@ export default function FeaturedProducts() {
   ];
 
   const products = productImages.map((img) => ({
-    image: `/images/FeaturedProducts/${img}`,
+    images: [
+      {
+        url: `/images/FeaturedProducts/${img}`,
+      },
+    ],
   }));
 
   return (

@@ -1,4 +1,5 @@
 import { Calendar, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ContentCard({
   slides,
@@ -51,12 +52,12 @@ export default function ContentCard({
           </div>
         </div>
 
-        <a
-          href="#"
-          className="text-blue-600 font-semibold flex items-center gap-1"
+        <Link
+          to="/blog"
+          className="text-blue-600 font-semibold flex items-center gap-1 hover:underline"
         >
           {card.linkLabel} <span>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -87,6 +88,6 @@ export default function ContentCard({
 
   return renderCard(
     { image, badge, tags, title, description, date, comments, linkLabel },
-    0
+    0,
   );
 }
