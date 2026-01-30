@@ -13,7 +13,7 @@ export default function ContactPage() {
         Classical physics:
       </p>
 
-      <button className="bg-[#23A6F0] text-white font-bold px-8 py-3 rounded-md text-sm tracking-wide mb-10 hover:bg-[#1d91d8] transition">
+      <button className="bg-[#23A6F0] text-white font-bold px-8 py-3 rounded-md text-sm tracking-wide mb-10 hover:bg-[#1d91d8] transition cursor-pointer">
         CONTACT OUR COMPANY
       </button>
 

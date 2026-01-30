@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/(login|signup|user/.*)",
+      "destination": "https://e-commerce-backend-ruby-seven.vercel.app/$1"
+    }
+  ]
+}

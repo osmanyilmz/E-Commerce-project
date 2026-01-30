@@ -12,7 +12,7 @@ const slides = [
     buttonLabel: "SHOP NOW",
   },
   {
-    image: "/images/carousel-image2.jpg",
+    image: "/images/Contact/question-and-answers.jpg",
     title: "WINTER COLLECTION",
     season: "WINTER 2020",
     desc: "Comfort and warmth for every season.",

@@ -42,7 +42,7 @@ export default function AboutPage() {
               <br className="block lg:hidden" /> not act that way.
             </p>
 
-            <button className="bg-[#23A6F0] text-white font-bold px-8 py-3 rounded-md text-sm tracking-wide hover:bg-[#1d91d8] transition w-fit mx-auto lg:mx-0">
+            <button className="bg-[#23A6F0] text-white font-bold px-8 py-3 rounded-md text-sm tracking-wide hover:bg-[#1d91d8] transition w-fit mx-auto lg:mx-0 cursor-pointer">
               Get Quote Now
             </button>
           </div>
