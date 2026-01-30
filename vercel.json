@@ -1,9 +1,14 @@
 {
   "routes": [
     {
-      "src": "^/(login|signup|user/.*)$",
-      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "src": "^/(login|signup)$",
+      "methods": ["POST"],
       "dest": "https://e-commerce-backend-ruby-seven.vercel.app/$1"
+    },
+    {
+      "src": "^/user/.*",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "dest": "https://e-commerce-backend-ruby-seven.vercel.app$0"
     },
     {
       "handle": "filesystem"
