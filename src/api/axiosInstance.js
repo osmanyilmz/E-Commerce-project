@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const isProd = import.meta.env.PROD;
+
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: isProd ? "" : "http://localhost:8080",
 });
 
 axiosInstance.interceptors.request.use((config) => {
