@@ -46,7 +46,7 @@ function AppContent() {
           <Route path="/cart" component={ShoppingCartPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/team" component={TeamPage} />
-          <Route path="/blog" component={Blog} />{" "}
+          <Route path="/blog" component={Blog} />
           <Route path="/about" component={AboutPage} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/login" component={LoginPage} />

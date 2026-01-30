@@ -103,7 +103,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 flex items-center justify-center">
               <button
                 onClick={() => setIsOpen(true)}
-                className="w-14 h-14 lg:w-20 lg:h-20 bg-[#23A6F0] rounded-full flex items-center justify-center shadow-lg hover:bg-[#1f8bd6] transition"
+                className="w-14 h-14 lg:w-20 lg:h-20 bg-[#23A6F0] rounded-full flex items-center justify-center shadow-lg hover:bg-[#1f8bd6] transition cursor-pointer"
               >
                 <Play className="text-white w-7 h-7 lg:w-9 lg:h-9" />
               </button>

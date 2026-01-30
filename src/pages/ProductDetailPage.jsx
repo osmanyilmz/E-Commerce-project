@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/shoppingCartActions";
+import Icons from "../components/common/Icons";
+import FeaturedProducts from "../components/FeaturedProducts";
+import ProductDetailCard from "../components/ProductDetailPage/ProductDetailCard";
+import ProductDetails from "../components/ProductDetailPage/ProductDetails";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -21,6 +25,7 @@ export default function ProductDetailPage() {
 
   if (fetchState === "FETCHING")
     return <div className="text-center mt-20">Loading...</div>;
+
   if (!product) return <div className="text-center mt-20">Ürün bulunamadı</div>;
 
   return (
@@ -33,9 +38,7 @@ export default function ProductDetailPage() {
           >
             Home
           </span>
-
           <span className="mx-2">{">"}</span>
-
           <span
             onClick={() => history.push("/shop")}
             className="cursor-pointer hover:underline"
@@ -45,41 +48,14 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      <button
-        onClick={() => history.goBack()}
-        className="px-4 py-2 bg-[#23A6F0] hover:bg-blue-700 transition rounded-md mb-5 self-start"
-      >
-        <p className="text-white">← Previous</p>
-      </button>
+      <ProductDetailCard product={product} onAddToCart={handleAddToCart} />
 
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 w-full max-w-6xl">
-        <img
-          src={product.images?.[0]?.url}
-          alt={product.name}
-          className="w-full max-w-sm h-auto object-cover rounded-lg shadow"
-        />
+      <ProductDetails />
 
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <h1 className="text-3xl font-bold">{product.name}</h1>
-          <p className="text-gray-600 mt-3">{product.description}</p>
+      <FeaturedProducts onlyTitle={true} showColors={false} />
 
-          <p className="text-2xl font-semibold mt-5">${product.price}</p>
-
-          <button
-            onClick={handleAddToCart}
-            className="mt-5 px-6 py-3 bg-[#23A6F0] text-white rounded-md hover:bg-blue-700 transition"
-          >
-            Add to Cart
-          </button>
-
-          <p className="text-gray-500 mt-3">
-            Stock: <strong>{product.stock}</strong>
-          </p>
-
-          <p className="text-gray-500">
-            Rating: ⭐ <strong>{product.rating}</strong>
-          </p>
-        </div>
+      <div className="py-5 w-full">
+        <Icons />
       </div>
     </div>
   );

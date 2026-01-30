@@ -60,10 +60,10 @@ export default function Slider({ slides, variant = "default" }) {
 
         {isDouble ? (
           <div className="flex flex-col lg:flex-row gap-3 w-full max-w-[200px] lg:max-w-none">
-            <button className="bg-[#23A6F0] text-white text- md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 transition lg:bg-[#2DC071]">
+            <button className="bg-[#23A6F0] text-white text- md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 transition lg:bg-[#2DC071] cursor-pointer">
               {slides[current].buttonLabel}
             </button>
-            <button className="border border-[#23A6F0] lg:border-[#2DC071] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 hover:text-white transition lg:text-[#2DC071]">
+            <button className="border border-[#23A6F0] lg:border-[#2DC071] text-[#23A6F0] text-sm md:text-base font-semibold px-6 py-4 rounded hover:bg-blue-600 cursor-pointer hover:text-white transition lg:text-[#2DC071]">
               READ MORE
             </button>
           </div>
@@ -82,7 +82,7 @@ export default function Slider({ slides, variant = "default" }) {
                   {slides[current].price}
                 </p>
               )}
-              <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold  px-10 py-4 rounded hover:bg-green-100 transition">
+              <button className="bg-[#2DC071] text-white text-sm md:text-base font-semibold  px-10 py-4 rounded hover:bg-green-100 transition cursor-pointer">
                 {slides[current].buttonLabel}
               </button>
             </div>
