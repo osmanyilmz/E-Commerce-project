@@ -3,7 +3,9 @@ import axios from "axios";
 const isProd = import.meta.env.PROD;
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.PROD ? "/api" : "http://localhost:8080",
+  baseURL: isProd
+    ? "https://e-commerce-backend-ruby-seven.vercel.app"
+    : "http://localhost:8080",
 });
 
 axiosInstance.interceptors.request.use((config) => {
