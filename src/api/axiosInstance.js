@@ -4,7 +4,7 @@ const isProd = import.meta.env.PROD;
 
 const axiosInstance = axios.create({
   baseURL: isProd
-    ? "https://e-commerce-backend-25el.onrender.com"
+    ? "https://e-commerce-backend-jiid.onrender.com"
     : "http://localhost:8080",
   headers: {
     "Content-Type": "application/json",
